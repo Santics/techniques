@@ -1,0 +1,1 @@
+{"init_qubits":["0","0","0"],"single_gate_sets":[{"cols":"0","rows":"0","gateclass":"H"}],"control_gate_sets":[{"ctrl":{"cols":"1","rows":"0","gateclass":"ctrl"},"ctrlgate":{"cols":"1","rows":"1","gateclass":"X"},"order":"-1"}],"measure_sets":[{"cols":"5","rows":"0","gateclass":"measure","project":"false"}]}
