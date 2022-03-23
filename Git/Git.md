@@ -81,5 +81,34 @@ git remote rm <name>
 #clone remote repository
 git clone git@github.com:username/projectname.git
 git clone https:://github.com/username/projectname
+
+#branches management
+#pointer:HEAD->master or  HEAD->otherbranches
+#create a new branch dev
+#commands parameter b meams create and switch
+git checkout -b dev
+git switch -c dev
+#another way to create
+git branch dev
+#more ways to switch
+git checkout dev
+git switch master
+#check branch list & current branch
+git branch
+#merging branches
+#this command merges specified branch to current branch
+git merge dev
+#delete branches
+git branch -d dev
+#use this command to check merging graphs
+git log --graph
+#--no-ff  mode v.s fast forward mode
+#--no-ff mode means generating a new commit while megring
+#the merged history has branches which means you can identify the merging history
+#while the latter cannot(we have no idea whether there was a merging operation)
+#from another prespective
+#--no-ff means new a space(which copies the content dev points at) and let master point at it
+#while fastforward do not new a pointer,it just let master points at something the pointer dev points
+git merge --no-ff -m "merge with --no-ff" dev 
 ~~~
 

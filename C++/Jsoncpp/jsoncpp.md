@@ -140,7 +140,7 @@ int main(int argc, int** argv)
 
 
 
-+ **Transfer Json data to a file **
++ **Transfer Json data to a file**
 
 ~~~c++
 #include<iostream>
@@ -182,7 +182,7 @@ int main(int argc, int** argv)
 
 
 
-+ **Extract Json from a file **
++ **Extract Json from a file**
 
   ~~~c++
   #include<iostream>
