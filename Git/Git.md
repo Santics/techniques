@@ -65,5 +65,21 @@ git restore --staged <file>
 
 #delete some file
 git rm <file>
+
+#remote repository
+#associate remote repository on Github
+ssh-keygen -t rsa -C "yourmail@example.com"
+git remote add origin git@github.com:username/projectname
+git push -u origin master
+#check some information about remote repository
+git remote -v
+#remove remote repository
+#it just means unbinding local and remote repository
+#rather than deleting remote repository physically
+git remote rm origin
+git remote rm <name>
+#clone remote repository
+git clone git@github.com:username/projectname.git
+git clone https:://github.com/username/projectname
 ~~~
 
