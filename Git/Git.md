@@ -24,6 +24,7 @@ Repository
 git config --global user.name "Your name"
 git config --global user.email "email@example.com"
 
+
 #commonly used commands
 #initialize a repository
 #add some modifications
@@ -33,9 +34,11 @@ git add filename1.txt filename2.md
 git add .
 git commit -m "message"
 
+
 #check some information of current git repository
 git status
 git diff
+
 
 #check commit id & repository history
 git log
@@ -53,6 +56,7 @@ git reset --hard <some commitid>
 #use this commands to check the history of commands about version control to get some information
 git reflog
 
+
 #commands to undo changes
 #discard changes in working directory
 #-- means working directory
@@ -63,10 +67,12 @@ git restore <file>
 git reset HEAD <file>
 git restore --staged <file>
 
+
 #delete some file
 git rm <file>
 
-#remote repository
+
+#remote repository basic
 #associate remote repository on Github
 ssh-keygen -t rsa -C "yourmail@example.com"
 git remote add origin git@github.com:username/projectname
@@ -82,7 +88,8 @@ git remote rm <name>
 git clone git@github.com:username/projectname.git
 git clone https:://github.com/username/projectname
 
-#branches management
+
+#basic branches management
 #pointer:HEAD->master or  HEAD->otherbranches
 #create a new branch dev
 #commands parameter b meams create and switch
@@ -95,6 +102,8 @@ git checkout dev
 git switch master
 #check branch list & current branch
 git branch
+
+
 #merging branches
 #this command merges specified branch to current branch
 git merge dev
@@ -110,5 +119,27 @@ git log --graph
 #--no-ff means new a space(which copies the content dev points at) and let master point at it
 #while fastforward do not new a pointer,it just let master points at something the pointer dev points
 git merge --no-ff -m "merge with --no-ff" dev 
+
+
+#bug branches
+#in this situation,we want to save our working directory temporarily and restore it later
+#save working directory
+git stash
+#check saved working directory
+git stash list
+#restore or delete saved working directory
+#attention:when you ues this command,coressponding stash item will not be deleted
+git stash apply stash@{one number on the list}
+#delete specific stash item
+git stash drop stash@{one number on the list}
+#restore the working directory item and delete the item in the list
+git stash pop 
+#copy one spcific commit to current branch
+git cherry-pick <commit id>
+
+#delete one branch which is never be merged by force
+git branch -D <branch name>
+
+#remote repository advanced
 ~~~
 
