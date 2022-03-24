@@ -50,6 +50,7 @@ int main(int argc, int** argv)
     //this object looks like a dictionary
     //we can ues string indexes to appoint one specific data item
 	Json::Value root;
+    int i;
     
     //create and assign data item
 	root["null"] = NULL;
@@ -71,6 +72,8 @@ int main(int argc, int** argv)
     
     //print one specific data item
 	cout << root["message"].asString() << endl;
+    for(i=0;i<root["array"].size();i++)
+		cout << root["array"][i].asString() << endl;
 
 	return 0;
 }
