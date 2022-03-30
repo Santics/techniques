@@ -141,5 +141,18 @@ git cherry-pick <commit id>
 git branch -D <branch name>
 
 #remote repository advanced
+#while executing git clone, we can only see master branch by default
+#if we want to develop programs in dev branch,we should fetch remote origin/dev to local environment
+git checkout -b dev origin/dev
+#if command "git push" fails
+#usually it is because remote repository is ahead of local repository
+#in collaborative development, it happens when other people push some commits to remote repository
+#try use this to fetch newest commits from origin/somebranch
+git pull
+#if git pull fails
+#it is may because we did not specify connections between local branch and origin/branch,try use this to track remote branch from origin and pull again
+git branch --set-upstream-to=origin/dev dev
+git branch ==set-upstream-to <branch-name> origin/<branch-name>
+git pull
 ~~~
 
