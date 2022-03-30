@@ -31,7 +31,12 @@ git config --global user.email "email@example.com"
 #commit some modifications with some messages
 git init
 git add filename1.txt filename2.md
+#git add . saves all changes except delteing something
 git add .
+#git add -A really means saving all changes
+git add -A
+#git add -u means saving modifying and deleting except creating new documents
+git add -u
 git commit -m "message"
 
 
@@ -152,7 +157,19 @@ git pull
 #if git pull fails
 #it is may because we did not specify connections between local branch and origin/branch,try use this to track remote branch from origin and pull again
 git branch --set-upstream-to=origin/dev dev
-git branch ==set-upstream-to <branch-name> origin/<branch-name>
+git branch --set-upstream-to <branch-name> origin/<branch-name>
 git pull
+#if remote repository is ahead of local repository, we need to execute git pull
+#but this integration will creat extra merge commits
+#if many corporators have done this, git log would be a diaster
+#we can use the following commands to avoid this
+git rebase
+#when we use the following command, we should make sure working directory is clean
+#we can commit or stash first
+git pull -r
+#if rebase procedure has conflicts
+git rebase --abort
+#or solve conflicts and execute
+git rebase --continue
 ~~~
 
