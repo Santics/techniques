@@ -116,6 +116,8 @@ git merge dev
 git branch -d dev
 #use this command to check merging graphs
 git log --graph
+#use this to check commits only
+git log --pretty=oneline --abbrev-commit
 #--no-ff  mode v.s fast forward mode
 #--no-ff mode means generating a new commit while megring
 #the merged history has branches which means you can identify the merging history
@@ -142,8 +144,10 @@ git stash pop
 #copy one spcific commit to current branch
 git cherry-pick <commit id>
 
+
 #delete one branch which is never be merged by force
 git branch -D <branch name>
+
 
 #remote repository advanced
 #while executing git clone, we can only see master branch by default
@@ -171,5 +175,35 @@ git pull -r
 git rebase --abort
 #or solve conflicts and execute
 git rebase --continue
+
+
+#tag management
+#tag is an immovable pointer to a specific commit log
+#bear in mind that a tag is always relating to one commit
+#if this commit appears in master and dev simultaneously,it means we can see this tag 
+#in each branch
+#create a new tag
+#the tag affixes to the latest commit by default
+git tag v1.0
+#tag affixes to one specific commit
+git tag v0.9 <commit_id>
+#tag with comments affixes to one specific commit
+#-a assigns tagname
+git tag -a v0.1 -m "some comments" <commit_id>
+#check all tags
+git tag
+#check tag information in detail
+git show <tagname>
+#delete tags
+git tag -d v0.1
+#push tags to remote repository
+git push origin <tagname>
+git push origin --tags
+#delete tags in remote repository
+#first delete local tags, and delete remote tags
+git tag -d v0.9
+git push origin :refs/tags/v0.9
+
+
 ~~~
 
